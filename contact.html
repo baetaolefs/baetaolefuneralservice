@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.png') no-repeat center center fixed;
+            background-size: cover;
+            background-position: bottom; /* Keeps the image centered */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* About Us Header Styling */
+       /* Ensure the header with the image stays below the nav bar */
+       .about-header {
+            position: relative;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        /* Make the image responsive and set a fixed height */
+        .about-header img {
+            width: 100%;
+            height: 600px; /* Set a fixed height */
+            object-fit: cover; /* Ensures the image covers the area without stretching */
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Position the text at the bottom left and apply the cursive font */
+        .header-text {
+            position: absolute;
+            top: 10px; /* Distance from the bottom */
+            right: 10px; /* Distance from the left */
+            color: rgb(210, 239, 212); /* Text color */
+            font-size: 70px; /* Text size */
+            font-family: 'Dancing Script', cursive; /* Apply the cursive font */
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0); /* Optional background for contrast */
+            padding: 10px;
+        }
+
+        /* Optional: Remove space at the top of the page for the navbar */
+        body {
+            padding-top: 0;
+        }
+
+        /* Ensure the 'About' section has no extra gap or padding */
+        #about {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #134405;
+            width: 100%;
+            padding: 0.8em 0;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 1em;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
+        nav a:hover {
+            background-color: #77777740;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 2em;
+            background-color: #f9f9f9;
+            margin: 5em auto 2em; /* Ensures space below navbar */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section h2 {
+            color: #732121;
+            margin-bottom: 1em;
+            font-size: 2em;
+        }
+
+        .contact-section p {
+            margin-bottom: 1.5em;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        iframe {
+            width: 100%;
+            height: 820px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        /* Section Styling */
+        #branches {
+            padding: 40px;
+            background-color: #ffffff;
+        }
+
+        #branches h2 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #134405;
+            margin-bottom: 20px;
+        }
+
+        .branch {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .branch h3 {
+            font-size: 1.5em;
+            color: #732121;
+            margin-bottom: 10px;
+        }
+
+        .branch p {
+            font-size: 1.1em;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        /* Business Info Section */
+#business-info {
+    background-color: #bdd9b053;  /* Grey background */
+    padding: 40px;
+    color: #000000;
+    text-align: left; /* Align all text to the left within the section */
+}
+
+.business-info .section-heading {
+    text-align: center;
+    font-size: 2em; /* Default font size for the section heading */
+    margin-bottom: 20px;
+    color: #0b4614; /* Default color for the heading */
+    font-family: 'Dancing Script', cursive; /* Apply the cursive font */
+}
+
+.business-info .business-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+}
+
+.business-info h3 {
+    font-size: 1.5em; /* Default font size for subsection headings */
+    margin-bottom: 10px;
+}
+
+.contact-info p, .branch-locations ul, .logo img {
+    margin: 10px 0;
+}
+
+.branch-locations ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .business-info .business-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, .branch-locations, .social-media, .logo {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Customizable styles for the heading */
+#business-heading {
+    font-size: var(--heading-font-size, 3em); /* Use a CSS variable for adjustable size */
+    color: var(--heading-color, #134405); /* Use a CSS variable for adjustable color */
+    font-family: 'Dancing Script', cursive; /* Apply the cursive font to customizable heading */
+}
+
+        /* Footer Styling */
+        footer {
+            background-color: #134405;
+            color: #ffffff;
+            text-align: center;
+            padding: 1em;
+            font-size: 14px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <header class="about-header">
+            <img src="contact.jpg" alt="About Us Image">
+            <div class="header-text">
+                <p>Contact Us</p>
+            </div>
+        </header>
+    </section>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About</a>
+        <a href="plans.html">Plans</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    
+    <!-- Contact Section with Embedded Google Form -->
+    <div class="contact-section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, please fill out the form below, and we will get back to you as soon as possible.</p>
+        <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdVDtQVwdJt_7yAeWJXLQ4y4WLPLWUcQGQwF8xd-6CmIf8PjQ/viewform?embedded=true" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0">
+            Loading…
+        </iframe>
+    </div>
+
+<!-- Branches Section -->
+<section id="branches">
+    <h2>Our Branches</h2>
+
+    <div class="branch">
+        <h3>Head Office</h3>
+        <p>SAPS Detective Building</p>
+        <p>Corner Agatha and Morgan Street</p>
+        <p>Opposite FNB, Between Furnmart and Home & Electric Furnitures</p>
+        <p>Tzaneen 0850</p>
+    </div>
+
+    <div class="branch">
+        <h3>Mentz-Segoreng</h3>
+        <p>Stand No. 10407</p>
+        <p>R71 Road Opposite Dunlop Tyres</p>
+        <p>Boyne 0728 (Polokwane)</p>
+    </div>
+
+    <div class="branch">
+        <h3>Zebediela Office</h3>
+        <p>Mahlarolla Village</p>
+        <p>Near Moletlane Plaza</p>
+        <p>Next to P&L Hardware</p>
+        <p>Moletlane 0697</p>
+    </div>
+</section>
+
+<!-- Business Info Section -->
+<section id="business-info" class="business-info">
+    <h2 class="section-heading" id="business-heading">Business Info</h2>
+    
+    <div class="business-content">
+        
+        <!-- Contact Info Section -->
+        <div class="contact-info">
+            <h3>Contacts</h3>
+            <p><i class="fas fa-mobile-alt"></i> 015 065 0842</p> <!-- Cellphone icon -->
+            <p><i class="fas fa-mobile-alt"></i> 082 616 0441</p> <!-- Cellphone icon -->
+            <p><i class="fas fa-envelope"></i>baetaolefs@gmail.com</p> <!-- Email icon -->
+        </div>
+        
+        <!-- Branch Locations Section -->
+        <div class="branch-locations">
+            <h3>Our Branches</h3>
+            <ul>
+                <li>Tzaneen</li>
+                <li>Mentz-Segoreng</li>
+                <li>Zebediela</li>
+            </ul>
+        </div>
+        
+        <!-- Social Media Section -->
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <a href="https://facebook.com/baetaolefuneralservice" target="_blank">
+                <img src="facebook.png" alt="Facebook" class="social-icon">
+            </a>
+        </div>
+        
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="logo2.png" alt="Baetaole Funeral Service Logo">
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Baetaole Funeral Service | All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>

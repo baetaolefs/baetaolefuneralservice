@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.png') no-repeat center center fixed;
+            background-size: cover; /* Ensures the entire image fits inside the viewport */
+            background-position: top; /* Keeps the image centered */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* About Us Header Styling */
+       /* Ensure the header with the image stays below the nav bar */
+        .about-header {
+            position: relative;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        /* Make the image responsive and set a fixed height */
+        .about-header img {
+            width: 100%;
+            height: 600px; /* Set a fixed height */
+            object-fit: cover; /* Ensures the image covers the area without stretching */
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Position the text at the bottom left and apply the cursive font */
+        .header-text {
+            position: absolute;
+            bottom: 10px; /* Distance from the bottom */
+            left: 10px; /* Distance from the left */
+            color: rgb(210, 239, 212); /* Text color */
+            font-size: 70px; /* Text size */
+            font-family: 'Dancing Script', cursive; /* Apply the cursive font */
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0); /* Optional background for contrast */
+            padding: 10px;
+        }
+
+        /* Optional: Remove space at the top of the page for the navbar */
+        body {
+            padding-top: 0;
+        }
+
+        /* Ensure the 'About' section has no extra gap or padding */
+        #about {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #134405;
+            width: 100%;
+            padding: 0;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 1em;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
+        nav a:hover {
+            background-color: #77777740;
+        }
+
+        /* Main Content Section */
+        #about {
+            margin-top: 10px;
+            padding: 2em;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* About Us Text Styling */
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .about-text h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            color: #134405;
+        }
+
+        .about-text p {
+            margin-bottom: 1em;
+        }
+
+        /* Gallery Images Styling */
+        .gallery-top {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-top img {
+            width: 23%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-top img:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+        }
+
+        /* Business Info Section */
+#business-info {
+    background-color: #bdd9b053;  /* Grey background */
+    padding: 40px;
+    color: #000000;
+    text-align: left; /* Align all text to the left within the section */
+}
+
+.business-info .section-heading {
+    text-align: center;
+    font-size: 2em; /* Default font size for the section heading */
+    margin-bottom: 20px;
+    color: #0b4614; /* Default color for the heading */
+    font-family: 'Dancing Script', cursive; /* Apply the cursive font */
+}
+
+.business-info .business-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+}
+
+.business-info h3 {
+    font-size: 1.5em; /* Default font size for subsection headings */
+    margin-bottom: 10px;
+}
+
+.contact-info p, .branch-locations ul, .logo img {
+    margin: 10px 0;
+}
+
+.branch-locations ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .business-info .business-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, .branch-locations, .social-media, .logo {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Customizable styles for the heading */
+#business-heading {
+    font-size: var(--heading-font-size, 3em); /* Use a CSS variable for adjustable size */
+    color: var(--heading-color, #134405); /* Use a CSS variable for adjustable color */
+    font-family: 'Dancing Script', cursive; /* Apply the cursive font to customizable heading */
+}
+
+        /* Footer Styling */
+        footer {
+            background-color: #134405;
+            color: #ffffff;
+            text-align: center;
+            padding: 1em;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <header class="about-header">
+            <img src="aboutus.jpg" alt="About Us Image">
+            <div class="header-text">
+                <p>Our Story</p>
+            </div>
+        </header>
+    
+    </section>
+    
+    
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About</a>
+        <a href="plans.html">Plans</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+
+    <!-- About Us Content -->
+    <section id="about">
+    <div class="about-text">
+        <h2>Get To Know Us</h2>
+        <p>Baetaole Funeral Service is a compassionate and caring company dedicated to supporting families during their most difficult times. Our mission is to provide affordable, dignified, and personalized funeral services that cater to the unique needs of each family we serve. We strive to ensure that every service is a meaningful celebration of life, providing peace and comfort during the grieving process.</p>
+
+        <p>Founded with a deep understanding of the emotional and financial challenges that come with losing a loved one, Baetaole Funeral Service offers a variety of flexible funeral plans, including traditional and personalized services. We are committed to making every step of the funeral process as seamless and stress-free as possible for our clients, from arranging transportation to assisting with legal paperwork.</p>
+
+        <p>Our dedicated and experienced team ensures that each service is tailored to the wishes of the family. Whether it’s a traditional burial, a memorial service, or a personalized ceremony, Baetaole Funeral Service is here to provide guidance and support every step of the way.</p>
+
+        <h2>Our Services</h2>
+        <p>We offer a wide range of services to meet the needs of every family:</p>
+        <ul>
+            <li>Traditional Funeral Services</li>
+            <li>Personalized Memorial Services</li>
+            <li>Funeral Transportation</li>
+            <li>Burial Services</li>
+            <li>Assistance with Paperwork</li>
+        </ul>
+
+        <p>We believe that each life is unique, and we are here to help celebrate and honor your loved one in a way that reflects their life and legacy.</p>
+
+        <h2>Our Commitment</h2>
+        <p>At Baetaole Funeral Service, we are committed to offering high-quality, affordable funeral services that focus on the needs of our clients. Our team approaches each service with care, empathy, and professionalism to ensure that your loved one’s final journey is one of dignity and respect.</p>
+
+        <div class="gallery-top">
+            <img src="image1.jpg" alt="Gallery Image 1">
+            <img src="image2.jpg" alt="Gallery Image 2">
+            <img src="image3.jpg" alt="Gallery Image 3">
+            <img src="image4.jpg" alt="Gallery Image 4">
+        </div>
+    </div>
+
+</section>
+<!-- Business Info Section -->
+<section id="business-info" class="business-info">
+    <h2 class="section-heading" id="business-heading">Business Info</h2>
+    
+    <div class="business-content">
+        
+        <!-- Contact Info Section -->
+        <div class="contact-info">
+            <h3>Contacts</h3>
+            <p><i class="fas fa-mobile-alt"></i> 015 065 0842</p> <!-- Cellphone icon -->
+            <p><i class="fas fa-mobile-alt"></i> 082 616 0441</p> <!-- Cellphone icon -->
+            <p><i class="fas fa-envelope"></i>baetaolefs@gmail.com</p> <!-- Email icon -->
+        </div>
+        
+        <!-- Branch Locations Section -->
+        <div class="branch-locations">
+            <h3>Our Branches</h3>
+            <ul>
+                <li>Tzaneen</li>
+                <li>Mentz-Segoreng</li>
+                <li>Zebediela</li>
+            </ul>
+        </div>
+        
+        <!-- Social Media Section -->
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <a href="https://facebook.com/baetaolefuneralservice" target="_blank">
+                <img src="facebook.png" alt="Facebook" class="social-icon">
+            </a>
+        </div>
+        
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="logo2.png" alt="Baetaole Funeral Service Logo">
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Baetaole Funeral Service | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

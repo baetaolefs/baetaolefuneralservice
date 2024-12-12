@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baetaole Funeral Service</title>
+    <!-- Google Fonts Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('background.png'); /* Replace with the path to your image */
+            background-size: cover; /* Ensures the image covers the entire page */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            overflow-x: hidden;
+        }
+
+
+        /* Hero Section with Parallax */
+        #home {
+            background-image: url('home.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Ensure the overlay is centered */
+        }
+
+
+        .section-heading {
+            font-size: 2.5rem; /* Adjust the size as needed */
+            color: #1a5208; /* Default color (green) */
+            margin-bottom: 20px;
+            text-transform: uppercase; /* Optional: capitalize the text */
+            font-weight: bold; /* Make the heading bold */
+            text-align: center; /* Center the text */
+            letter-spacing: 2px; /* Add spacing between letters */
+        }
+
+
+        /* Overlay styling */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(253, 255, 253);
+            z-index: 1;
+        }
+
+        .overlay h2,
+        .overlay p {
+            margin: 0;
+            padding: 0 1em;
+        }
+
+        #home h2 {
+            font-size: 3rem; /* Increase the size of the main heading */
+            font-weight: bold; /* Optional: make the heading bold */
+            margin: 0;
+        }
+
+        #home p {
+            font-size: 2rem; /* Increase the size of the paragraph text */
+            margin: 0.5em 0;
+        }
+    
+        /* Button Styling with Hover Effects */
+        .cta-btn {
+            padding: 1em 2em;
+            margin-top: 30px;
+            background-color: #ffffff;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: background-color 0.4s, transform 0.4s;
+            animation: fadeIn 2s ease-out;
+            animation-delay: 2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #49c42c;
+            transform: scale(1.1);
+        }
+
+        /* Navigation Styling */
+        nav {
+            background-color: #134405; /* Green background */
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-evenly; /* Center and spread out the links */
+            align-items: center;
+            z-index: 1000;
+            position: relative;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #49c42c;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Logo Styling */
+        .nav-logo {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 20px auto; /* Centered and with spacing above the navbar */
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* About, Plans, and Gallery Sections Background */
+/* About, Plans, and Gallery Sections Background */
+        #about, #plans, #services, #business-info {
+            background-image: url('background.jpg'); /* Replace with the path to your image */
+            background-size: cover; /* Ensures the image covers the entire section */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            padding: 80px 20px; /* Keeps your padding from the original style */
+            text-align: center;
+            position: relative;
+            margin-bottom: 0px; /* Increase space below each section (you can adjust this value as needed) */
+        }
+
+/* Optional: Adjust the margin-bottom value to get the desired gap between sections */
+
+
+        .image-heading img {
+            display: block;
+            width: 100%;
+            max-width: 300px; /* Limit the width for better responsiveness */
+            height: auto;
+            margin: 0 auto;
+        }
+
+ 
+        /* Plans Section Slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 50%; /* Full width */
+            margin: auto; /* Center the slideshow */
+            overflow: hidden; /* Hide overflow for clean edges */
+        }
+
+        .slide {
+            display: none; /* Initially hide all slides */
+            position: relative;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%; /* Make images responsive */
+            border-radius: 10px; /* Optional rounded corners */
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* Fade effect for smooth transitions */
+        .fade {
+            animation: fadeEffect 1s ease-in-out;
+        }
+
+        @keyframes fadeEffect {
+            from {
+                opacity: 0.4;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+                /* Container to align text and images side by side */
+        .plan-content {
+            display: flex;
+            align-items: center; /* Vertically center the items */
+            justify-content: space-between; /* Space out the text and images */
+        }
+
+        /* Ensure the paragraph takes up less space than the images */
+        .text-container {
+            width: 40%; /* You can adjust the percentage to your liking */
+        }
+
+        /* Image container styles */
+        .carousel-container {
+            width: 55%; /* Adjust width of the carousel container */
+            position: relative;
+        }
+
+        /* Optional: Add some styling for carousel buttons and images */
+        .carousel img {
+            width: 60%; /* Make the images fill their container */
+            height: auto;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            color: rgb(254, 254, 254);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: #134405;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+            nav a {
+                margin: 10px 0;
+                font-size: 1.5rem;
+            }
+
+            .plan-images,
+            .gallery-images {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #home h2 {
+                font-size: 3rem;
+            }
+
+            .cta-btn {
+                font-size: 1rem;
+                padding: 0.8em 1.5em;
+            }
+        }
+        
+        /* Service Section */
+        #services {
+            text-align: center;
+            padding: 40px;
+            color: #333333; /* Default font color for the section */
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service-item {
+            width: 500px; /* Increase the width of the service cards */
+            text-align: center;
+            color: #444444; /* Font color for service item text */
+        }
+
+        .service-card {
+            background-color: #134405;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px; /* Increase the padding inside the card */
+            transition: transform 0.3s ease;
+            color: #ffffff; /* Font color for card text */
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+
+        .service-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-image:hover {
+            transform: scale(1.0);
+        }
+
+        /* Remove underline from service buttons */
+        .service-btn {
+            text-decoration: none; /* Removes the underline */
+            background-color: #ffffff; /* Set the button color */
+            color: rgb(0, 0, 0); /* Button text color */
+            padding: 0.5rem 1rem; /* Add padding for better button appearance */
+            border-radius: 5px; /* Rounded corners */
+            display: inline-block; /* Ensures the link behaves like a block element */
+            font-size: 1rem; /* Set the font size */
+            text-align: center; /* Center the text */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Optional: Change button color on hover */
+        .service-btn:hover {
+            background-color: #134405; /* Darker green on hover */
+            color: #ffffff; /* Change text color on hover */
+        }
+
+        .service-btn:focus {
+            outline: none;
+        }
+
+        .service-card h3 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #f9fff8; /* Font color for the card title */
+        }
+
+        /* Make the service cards responsive */
+        @media (max-width: 768px) {
+            .service-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-item {
+                width: 90%; /* Increase the width on smaller screens */
+                color: #444444; /* Adjust font color for smaller screens if needed */
+            }
+        }
+
+
+        /* Carousel container styling */
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Hide all images by default */
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+                .carousel-image {
+            width: 60%; /* Adjust the width to your preferred size (e.g., 80% of the container's width) */
+            max-width: 600px; /* Optional: limits the max size of the images */
+            height: auto; /* Maintain aspect ratio */
+            display: block;
+            margin: 0 auto; /* Center the images */
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Styling for enlarged image */
+        .carousel-image.enlarged {
+            transform: scale(1.5);
+            z-index: 2;
+            cursor: zoom-out;
+            border: 5px solid #ccc; /* Optional: Add a border for the enlarged state */
+        }
+
+        /* Navigation arrows */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+
+/* Business Info Section */
+#business-info {
+    background-color: #bdd9b053;  /* Grey background */
+    padding: 40px;
+    color: #000000;
+    text-align: left; /* Align all text to the left within the section */
+}
+
+.business-info .section-heading {
+    text-align: center;
+    font-size: 2em; /* Default font size for the section heading */
+    margin-bottom: 20px;
+    color: #0b4614; /* Default color for the heading */
+    font-family: 'Dancing Script', cursive; /* Apply the cursive font */
+}
+
+.business-info .business-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+}
+
+.business-info h3 {
+    font-size: 1.5em; /* Default font size for subsection headings */
+    margin-bottom: 10px;
+}
+
+.contact-info p, .branch-locations ul, .logo img {
+    margin: 10px 0;
+}
+
+.branch-locations ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .business-info .business-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, .branch-locations, .social-media, .logo {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Customizable styles for the heading */
+#business-heading {
+    font-size: var(--heading-font-size, 3em); /* Use a CSS variable for adjustable size */
+    color: var(--heading-color, #134405); /* Use a CSS variable for adjustable color */
+    font-family: 'Dancing Script', cursive; /* Apply the cursive font to customizable heading */
+}
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Logo Above the Navbar -->
+<img class="nav-logo" src="logo2.png" alt="Baetaole Funeral Service Logo">
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.html">Home</a> <!-- Current page -->
+    <a href="aboutus.html">About</a>
+    <a href="plans.html">Plans</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</nav>
+<!-- Hero Section -->
+<section id="home">
+    <div class="overlay">
+        <h2>Welcome to Baetaole Funeral Service</h2>
+        <p>OUR CLIENTS OUR PRIDE</p>
+    </div>
+</section>
+
+
+<!-- Service Section -->
+<section id="services">
+    <h2 class="section-heading">Our Services</h2>
+    <p>At Baetaole Funeral Service, we offer a compassionate and affordable approach to funeral planning, ensuring a dignified service for your loved ones...</p>
+<br>
+
+    <div class="service-container">
+        <!-- Burial Service Card -->
+        <div class="service-item">
+            <div class="service-card">
+                <h3>Burial Service</h3>
+                <p>We provide comprehensive burial services to ensure a respectful and dignified farewell. Our services include arranging the burial site to coordinating transportation. </p>   
+                <br>             <!-- Heading above the image -->
+                <img src="image10.jpg" alt="Burial Service" class="service-image">
+                <a href="plans.html#burial-service" class="service-btn">Find Out More</a>
+            </div>
+        </div>
+        <!-- Tombstone Cover Card -->
+        <div class="service-item">
+            <div class="service-card">
+                <h3>Tombstone Cover</h3>
+                <p>We offer tombstone cover services to ensure your loved one's resting place is marked with dignity. We provide both a flexible policy option and a once-off payment plan for private clients.</p>                <!-- Heading above the image -->
+                <br> 
+                <img src="image4.jpg" alt="Tombstone Cover" class="service-image">
+                <a href="plans.html#tombstone-cover" class="service-btn">Find Out More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="plans">
+    <h2 class="section-heading">Our Plans</h2>
+    <p class="plan-description"></p>
+
+    <!-- Container for the paragraph and images -->
+    <div class="plan-content">
+        <!-- Paragraph on the left -->
+        <div class="text-container">
+            <p>At Baetaole Funeral Service, we understand that every family has unique needs when it comes to saying goodbye to a loved one.</p>
+            <br>
+            <p>That's why we offer a variety of flexible and affordable funeral plans designed to meet the diverse requirements of our clients. </p>
+            <br>
+            <p>Our plans are tailored to ensure that each service reflects the individual’s life and the wishes of their family, providing a meaningful and dignified tribute.</p>
+        </div>
+
+        <!-- Image container for the plan images -->
+        <div class="carousel-container">
+            <!-- Left Arrow -->
+            <button class="prev" onclick="changePlan(-1)">&#10094;</button>
+
+            <!-- Images (the carousel items) -->
+            <div class="carousel">
+                <img src="planA.jpg" alt="Plan A" class="carousel-image" onclick="pauseCarousel(this)">
+                <img src="planB.jpg" alt="Plan B" class="carousel-image" onclick="pauseCarousel(this)">
+                <img src="planC.jpg" alt="Plan C" class="carousel-image" onclick="pauseCarousel(this)">
+                <img src="planD.jpg" alt="Plan D" class="carousel-image" onclick="pauseCarousel(this)">
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="next" onclick="changePlan(1)">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="about">
+    <h2 class="section-heading">About Us</h2>
+    <p>Baetaole Funeral Service is a compassionate and caring company dedicated to supporting families during their most difficult times. Our mission is to provide affordable, dignified, and personalized funeral services that cater to the unique needs of each family we serve. We strive to ensure that every service is a meaningful celebration of life, providing peace and comfort during the grieving process.</p>
+    <br>
+    <p>Founded with a deep understanding of the emotional and financial challenges that come with losing a loved one, Baetaole Funeral Service offers a variety of flexible funeral plans, including traditional and personalized services. We are committed to making every step of the funeral process as seamless and stress-free as possible for our clients, from arranging transportation to assisting with legal paperwork.</p>
+    <br>
+    <p>Our dedicated and experienced team ensures that each service is tailored to the wishes of the family. Whether it’s a traditional burial, a memorial service, or a personalized ceremony, Baetaole Funeral Service is here to provide guidance and support every step of the way.</p>
+</section>
+
+<!-- Business Info Section -->
+<section id="business-info" class="business-info">
+    <h2 class="section-heading" id="business-heading">Business Info</h2>
+    
+    <div class="business-content">
+        
+        <!-- Contact Info Section -->
+        <div class="contact-info">
+            <h3>Contacts</h3>
+            <p><i class="fas fa-mobile-alt"></i> 015 065 0842</p> <!-- Cellphone icon -->
+            <p><i class="fas fa-mobile-alt"></i> 082 616 0441</p> <!-- Cellphone icon -->
+            <p><i class="fas fa-envelope"></i>baetaolefs@gmail.com</p> <!-- Email icon -->
+        </div>
+        
+        <!-- Branch Locations Section -->
+        <div class="branch-locations">
+            <h3>Our Branches</h3>
+            <ul>
+                <li>Tzaneen</li>
+                <li>Mentz-Segoreng</li>
+                <li>Zebediela</li>
+            </ul>
+        </div>
+        
+        <!-- Social Media Section -->
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <a href="https://facebook.com/baetaolefuneralservice" target="_blank">
+                <img src="facebook.png" alt="Facebook" class="social-icon">
+            </a>
+        </div>
+        
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="logo2.png" alt="Baetaole Funeral Service Logo">
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Baetaole Funeral Service | All Rights Reserved</p>
+</footer>
+
+<script>
+    let currentPlanIndex = 0;
+    const plans = document.querySelectorAll('.carousel-image');
+    const totalPlans = plans.length;
+    let isPaused = false;  // Variable to check if the carousel is paused
+
+    // Function to change the plan image when arrows are clicked
+    function changePlan(direction) {
+        if (isPaused) return; // Do nothing if the carousel is paused
+
+        // Hide the current plan
+        plans[currentPlanIndex].style.display = 'none';
+        
+        // Update the plan index
+        currentPlanIndex = (currentPlanIndex + direction + totalPlans) % totalPlans;
+        
+        // Show the new plan
+        plans[currentPlanIndex].style.display = 'block';
+    }
+
+    // Function to pause the carousel when an image is clicked and enlarge it
+    function pauseCarousel(clickedImage) {
+        if (isPaused) {
+            // If paused, shrink the image and allow the carousel to resume
+            clickedImage.classList.remove('enlarged');
+            isPaused = false;
+        } else {
+            // If not paused, enlarge the image and stop the carousel
+            clickedImage.classList.add('enlarged');
+            isPaused = true;
+        }
+    }
+
+    // Initial setup: Show the first plan
+    plans.forEach((plan, index) => {
+        if (index !== currentPlanIndex) {
+            plan.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.png') no-repeat center center fixed;
+            background-size: cover; /* Ensures the entire image fits inside the viewport */
+            background-position: top; /* Keeps the image centered */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* About Us Header Styling */
+       /* Ensure the header with the image stays below the nav bar */
+        .about-header {
+            position: relative;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        /* Make the image responsive and set a fixed height */
+        .about-header img {
+            width: 100%;
+            height: 600px; /* Set a fixed height */
+            object-fit: cover; /* Ensures the image covers the area without stretching */
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Position the text at the bottom left and apply the cursive font */
+        .header-text {
+            position: absolute;
+            top: 10px; /* Distance from the bottom */
+            right: 10px; /* Distance from the left */
+            color: rgb(210, 239, 212); /* Text color */
+            font-size: 70px; /* Text size */
+            font-family: 'Dancing Script', cursive; /* Apply the cursive font */
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0); /* Optional background for contrast */
+            padding: 10px;
+        }
+
+        /* Optional: Remove space at the top of the page for the navbar */
+        body {
+            padding-top: 0;
+        }
+
+        /* Ensure the 'About' section has no extra gap or padding */
+        #about {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+
+        h2 {
+            font-size: 50px; /* You can adjust this value to your preferred size */
+            color: #732121; /* Optional: Change text color */
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #134405;
+            width: 100%;
+            padding: 0;
+            position: fixed; /* Make the nav fixed */
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Make sure it stays on top */
+            width: 100%;
+        }
+
+        nav a {
+            color: #ffffff;
+            padding: 1em;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
+        nav a:hover {
+            background-color: #77777740;
+        }
+
+        /* Add padding-top to the section to avoid overlap with the fixed nav */
+    
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Distributes space evenly between cards */
+            gap: 10px; /* Adds space between rows and columns */
+        }
+
+        /* Plan Cards as Square Blocks */
+        .plan-card {
+            display: inline-block;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            width: 250px;
+            height: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #134405;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            
+        }
+
+        .plan-card:hover {
+            transform: scale(1.05);
+        }
+
+        .plan-card h3 {
+            margin-bottom: 1em;
+        }
+
+        .plan-card ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+
+        .plan-card ul li {
+            margin: 8px 0;
+        }
+
+        .plan-card button {
+            background-color: #134405;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .plan-card button:hover {
+            background-color: #134405;
+        }
+
+        /* Separator for Plan G */
+        .separator {
+            margin: 40px 0;
+            border-top: 2px solid #134405;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Separate Styling for Private Services */
+        .plan-card-private {
+            background-color: #134405;
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            width: 250px;
+            height: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .plan-card-private:hover {
+            transform: scale(1.05);
+        }
+
+        .plan-card-private h3 {
+            margin-bottom: 1em;
+            font-size: 1.5em;
+        }
+
+        .plan-card-private ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 1em;
+        }
+
+        .plan-card-private ul li {
+            margin: 8px 0;
+        }
+
+        .plan-card-private button {
+            background-color: #f0f0f0;
+            color: #134405;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .plan-card-private button:hover {
+            background-color: #52b849;
+        }
+
+        footer {
+            background-color: #134405;
+            color: #ffffff;
+            text-align: center;
+            padding: 1em;
+            font-size: 14px;
+        }
+
+        /* Modal for Viewing More Plan Details */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Flex for Private Services side by side */
+        .private-services-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .private-service {
+            margin: 10px;
+        }
+
+        .collage {
+            text-align: center; /* Center the image */
+            margin: 20px 0; /* Adds space around the image */
+        }
+
+        .collage-image {
+            max-width: 100%; /* Ensures the image is responsive */
+            height: auto;
+            border-radius: 8px; /* Optional: adds rounded corners */
+        }
+
+        /* Business Info Section */
+#business-info {
+    background-color: #bdd9b053;  /* Grey background */
+    padding: 40px;
+    color: #000000;
+    text-align: left; /* Align all text to the left within the section */
+}
+
+.business-info .section-heading {
+    text-align: center;
+    font-size: 2em; /* Default font size for the section heading */
+    margin-bottom: 20px;
+    color: #0b4614; /* Default color for the heading */
+    font-family: 'Dancing Script', cursive; /* Apply the cursive font */
+}
+
+.business-info .business-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-around;
+}
+
+.business-info h3 {
+    font-size: 1.5em; /* Default font size for subsection headings */
+    margin-bottom: 10px;
+}
+
+.contact-info p, .branch-locations ul, .logo img {
+    margin: 10px 0;
+}
+
+.branch-locations ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .business-info .business-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, .branch-locations, .social-media, .logo {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Customizable styles for the heading */
+#business-heading {
+    font-size: var(--heading-font-size, 3em); /* Use a CSS variable for adjustable size */
+    color: var(--heading-color, #134405); /* Use a CSS variable for adjustable color */
+    font-family: 'Dancing Script', cursive; /* Apply the cursive font to customizable heading */
+}
+
+
+    </style>
+</head>
+<body>
+
+    <section>
+        <header class="about-header">
+            <img src="ourplans.jpg" alt="About Us Image">
+            <div class="header-text">
+                <p>Our Plans & Services</p>
+            </div>
+        </header>
+    </section>
+    
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About</a>
+    <a href="plans.html">Plans</a> <!-- Current page -->
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+
+
+<section>
+    <!-- Plan Cards for A-F -->
+    <div class="card-container">
+    <div class="plan-card">
+        <h3>Plan A: Family Burial Policy</h3>
+        <p>Covers 14 members, corpse removal, hearse, coffin, and more...</p>
+        <button class="view-more-btn" onclick="openModal('planA')">View More</button>
+    </div>
+
+    <div class="plan-card">
+        <h3>Plan B: Family Burial Policy</h3>
+        <p>Covers 14 members, coffin, grave-marks, burial service, and more...</p>
+        <button class="view-more-btn" onclick="openModal('planB')">View More</button>
+    </div>
+
+    <div class="plan-card">
+        <h3>Plan C: Family Burial Policy</h3>
+        <p>Includes cold storage, coffin, programs, and more...</p>
+        <button class="view-more-btn" onclick="openModal('planC')">View More</button>
+    </div>
+
+    <div class="plan-card">
+        <h3>Plan D: Family Burial Policy</h3>
+        <p>Offers coffin, tombstone, burial service, and more...</p>
+        <button class="view-more-btn" onclick="openModal('planD')">View More</button>
+    </div>
+
+    <div class="plan-card">
+        <h3>Plan E: Family Cover Plus</h3>
+        <p>Comprehensive coverage with additional services...</p>
+        <button class="view-more-btn" onclick="openModal('planE')">View More</button>
+    </div>
+
+    <div class="plan-card">
+        <h3>Plan F: Tombstone Policy</h3>
+        <p>Offers tombstone services for your loved ones...</p>
+        <button class="view-more-btn" onclick="openModal('planF')">View More</button>
+    </div>
+    </div>
+    <!-- Separator for Private Services -->
+    <div class="separator"></div>
+
+    <div class="collage">
+        <img src="logo2.png" alt="Collage Image" class="collage-image">
+    </div>
+
+    <h2>Private Services</h2>
+    <div class="private-services-container">
+        <!-- Private Burial -->
+        <div class="plan-card-private">
+            <h3>Private Burial Services</h3>
+            <p>Exclusive and private burial services...</p>
+            <button class="view-more-btn" onclick="openModal('privateBurial')">View More</button>
+        </div>
+
+        <!-- Private Tombstone -->
+        <div class="plan-card-private">
+            <h3>Private Tombstone Services</h3>
+            <p>Custom tombstone designs and private installation...</p>
+            <button class="view-more-btn" onclick="openModal('privateTombstone')">View More</button>
+        </div>
+    </div>
+
+</section>
+
+<!-- Modal for Viewing Plan Details -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+<!-- Business Info Section -->
+<section id="business-info" class="business-info">
+    <h2 class="section-heading" id="business-heading">Business Info</h2>
+    
+    <div class="business-content">
+        
+        <!-- Contact Info Section -->
+        <div class="contact-info">
+            <h3>Contacts</h3>
+            <p><i class="fas fa-mobile-alt"></i> 015 065 0842</p> <!-- Cellphone icon -->
+            <p><i class="fas fa-mobile-alt"></i> 082 616 0441</p> <!-- Cellphone icon -->
+            <p><i class="fas fa-envelope"></i>baetaolefs@gmail.com</p> <!-- Email icon -->
+        </div>
+        
+        <!-- Branch Locations Section -->
+        <div class="branch-locations">
+            <h3>Our Branches</h3>
+            <ul>
+                <li>Tzaneen</li>
+                <li>Mentz-Segoreng</li>
+                <li>Zebediela</li>
+            </ul>
+        </div>
+        
+        <!-- Social Media Section -->
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <a href="https://facebook.com/baetaolefuneralservice" target="_blank">
+                <img src="facebook.png" alt="Facebook" class="social-icon">
+            </a>
+        </div>
+        
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="logo2.png" alt="Baetaole Funeral Service Logo">
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Baetaole Funeral Service | All Rights Reserved</p>
+</footer>
+
+<script>
+    function openModal(plan) {
+    var modal = document.getElementById("myModal");
+    var modalContent = document.getElementById("modalContent");
+
+    // Update modal content dynamically for each plan
+    if (plan === 'planA') {
+        modalContent.innerHTML = `
+            <h2>Plan A: Family Burial Policy</h2>
+            <p>This plan covers the following services:</p>
+            <ul>
+                <li>Coverage for 14 family members</li>
+                <li>No age limit.</li>
+                <li>Waiting Period: <br> 0-64 years - 3 months <br> 65 and above - 6 months.</li>
+                <li>No waiting period if from another burial society and in good standing.</li>
+                <li>Benefits: <br> Free Corpse removal around Limpopo, Gauteng, North-West and Mpumalanga, cold storage, hearse, family car, society coffin, 100 programs, tent and chairs at gravesite, Burial service and R1 900.00 cash pay-out, R1 000.00 cash payout if burial is not conducted by Baetaole Funeral Service for main member, spouse, main member's children and main member's parents and parents-in-law.</li>
+            </ul>
+            <p>Additional Information Contact 082 616 0441</p>
+        `;
+    } else if (plan === 'planB') {
+        modalContent.innerHTML = `
+            <h2>Plan B: Family Burial Policy</h2>
+            <p>This plan includes:</p>
+            <ul>
+                <li>Coverage for 14 family members</li>
+                <li>No age limit.</li>
+                <li>Waiting Period: <br> 0-64 years - 3 months <br> 65 and above - 6 months.</li>
+                <li>No waiting period if from another burial society and in good standing.</li>
+                <li>Benefits: <br>Free Corpse removal around Limpopo, Gauteng, North-West and Mpumalanga, cold storage, hearse, family car, standard coffin for main member and spouse, society coffin all other members, 2 grave-marks for main member and
+spouse, 120 programs, tent and chairs at gravesite, Burial service and R2 000.00 cash pay-out, R1 200.00 cash pay-out if burial is not conducted by Baetaole Funeral Service for main member, spouse, main member's children and main member's parents and parents-in-law.</li>
+            </ul>
+            <p>Additional Information Contact 082 616 0441</p>
+        `;
+    } else if (plan === 'planC') {
+        modalContent.innerHTML = `
+            <h2>Plan C: Family Burial Policy</h2>
+            <p>This plan covers:</p>
+            <ul>
+                <li>Coverage for 14 family members</li>
+                <li>No age limit.</li>
+                <li>Waiting Period: <br> 0-64 years - 3 months <br> 65 and above - 6 months.</li>
+                <li>No waiting period if from another burial society and in good standing.</li>
+                <li>Benefits: <br> Free Corpse removal around Limpopo, Gauteng, North-West and Mpumalanga, cold storage, hearse, family car, ¼ view semi-casket for main member and spouse, society coffin all other members, 4 grave-marks, 140 programs, tent and chairs at gravesite, Burial service and R2 100.00 cash pay-out, R1 500.00 cash pay-out if burial is not conducted by Baetaole Funeral Service for main member, spouse, main member's children and main member's parents and parents-in-law.</li>
+            </ul>
+            <p>Additional Information Contact 082 616 0441</p>
+        `;
+    } else if (plan === 'planD') {
+        modalContent.innerHTML = `
+            <h2>Plan D: Family Burial Policy</h2>
+            <p>Includes the following:</p>
+            <ul>
+                <li>Coverage for 14 family members</li>
+                <li>No age limit.</li>
+                <li>Waiting Period: <br> 0-64 years - 3 months <br> 65 and above - 6 months.</li>
+                <li>No waiting period if from another burial society and in good standing.</li>
+                <li>Benefits: <br> Free Corpse removal around Limpopo, Gauteng, North-West and Mpumalanga, cold storage, hearse, family car, ¼ view casket for main member and spouse, society coffin all other members, tombstone (G16) for main member and spouse, 4 grave-marks, 200 programs, tent and chairs at gravesite, Burial service and R2 300.00 cash pay-out, R2 000.00 cash pay-out if burial is not conducted by Baetaole Funeral Service for main member, spouse, main member's children and main member's parents and parents-in-law.</li>
+            </ul>
+            <p>Additional Information Contact 082 616 0441</p>
+        `;
+    } else if (plan === 'planE') {
+        modalContent.innerHTML = `
+            <h2>Plan E: Family Cover Plus</h2>
+            <p>This comprehensive plan offers:</p>
+            <ul>
+                <li>Extended family coverage</li>
+                <li>Additional services for peace of mind</li>
+                <li>And more...</li>
+            </ul>
+            <p>Additional Information: Full details about extended services...</p>
+        `;
+    } else if (plan === 'planF') {
+        modalContent.innerHTML = `
+            <h2>Plan F: Tombstone Policy</h2>
+            <p>This plan includes:</p>
+            <ul>
+                <li>Custom-designed tombstones</li>
+                <li>Tombstone installation</li>
+                <li>And more...</li>
+            </ul>
+            <p>Additional Information: Learn more about tombstone designs and installation...</p>
+        `;
+    } else if (plan === 'privateBurial') {
+        modalContent.innerHTML = `
+            <h2>Private Burial Services</h2>
+            <p>Exclusive burial services:</p>
+            <ul>
+                <li>Private burial options</li>
+                <li>Custom arrangements</li>
+                <li>And more...</li>
+            </ul>
+            <p>Additional Information: More details on how to personalize the service...</p>
+        `;
+    } else if (plan === 'privateTombstone') {
+        modalContent.innerHTML = `
+            <h2>Private Tombstone Services</h2>
+            <p>Custom tombstone services include:</p>
+            <ul>
+                <li>Custom designs</li>
+                <li>Installation services</li>
+                <li>And more...</li>
+            </ul>
+            <p>Additional Information: Full customization options available...</p>
+        `;
+    }
+
+    // Display the modal
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
